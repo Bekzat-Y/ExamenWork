@@ -3,7 +3,9 @@ package repo;
 import entity.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import service.UserService;
+
+import java.util.Optional;
 @Repository
-public interface UserRepo extends JpaRepository<Users,Long> {
+public interface UsersRepo extends JpaRepository<Users,Long> {
+     Optional<Users> findById(Long userId);
 }

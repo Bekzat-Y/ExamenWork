@@ -9,9 +9,9 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE,makeFinal = true)
 
-public enum ResultCodeAPI {
-    SUCCESS("SUCCESS"),
-    FAIL("FAIL"),
-    EXCEPTION("EXCEPTION"),;
-    String description;
+public enum ParkingSpotType {
+    STANDARD,
+    HANDICAPPED,
+    FAMILY,
+    ELECTRIC
 }
