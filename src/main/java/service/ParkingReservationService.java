@@ -7,9 +7,12 @@ import enums.ParkingSpotType;
 import java.util.List;
 
 public interface ParkingReservationService {
+    List<ParkingPlace> findParkingPlacesByType(ParkingSpotType spotType);
 
-    List<ParkingPlace> getParkingPlacesByType(ParkingSpotType spotType);
+    List<ParkingPlace> processParkingReservation(ParkingSpotType parkingReservation);
 
 
-    boolean reserveParkingSpot(Long userId, Long parkingPlaceId, Integer spotNumber, ParkingSpotType spotType);
+    List<ParkingReservation> getParkingPlacesByType(ParkingSpotType spotType);
+
+    List<ParkingReservation> getParkingPlaces();
 }

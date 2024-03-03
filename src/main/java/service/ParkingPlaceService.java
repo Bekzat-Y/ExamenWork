@@ -4,13 +4,21 @@ import entity.ParkingPlace;
 import entity.ParkingReservation;
 import enums.ParkingSpotType;
 
+
 import java.util.List;
 
-public interface ParkingPlaceService{
+public interface ParkingPlaceService {
 
-    List<ParkingPlace> processParkingReservation(ParkingSpotType parkingReservation);
 
-    boolean releaseParkingSpot(Long reservationId);
-    List<ParkingReservation> getParkingPlaces();
+     ParkingPlace getParkingPlaceById(Long id);
 
+    List<ParkingReservation> processParkingReservation(ParkingSpotType parkingReservation);
+
+    List<ParkingPlace> getParkingPlaces();
+
+    ParkingPlace createParkingSpot(ParkingPlace parkingPlace);
+
+    ParkingPlace updateParkingSpot(Long id, ParkingPlace updatedParkingPlace);
+
+    void deleteParkingSpot(Long id);
 }

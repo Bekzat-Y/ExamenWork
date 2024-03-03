@@ -3,7 +3,9 @@ package entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-@Data@Entity@Table
+@Entity
+@Table
+@Data
 public class ParkingReservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,17 +21,5 @@ public class ParkingReservation {
 
     private boolean isReleased;
 
-    public void setUser(Users user) {
-        this.users = user;
-    }
-
-    public void setParkingSpot(ParkingPlace parkingPlace) {
-        this.parkingPlace=parkingPlace;
-    }
-
     private Long spotNumber;
-
-    public void release() {
-        this.isReleased = true;
-    }
 }

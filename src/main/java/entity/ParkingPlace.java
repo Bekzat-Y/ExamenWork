@@ -13,7 +13,7 @@ public class ParkingPlace {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long ParkingNumber;
+    private Long parkingNumber;
 
     private Boolean status;
 
