@@ -71,6 +71,6 @@ public class UsersImpl implements UsersService {
 
     @Override
     public List<ParkingReservation> getParkingPlacesByType(ParkingSpotType spotType) {
-        return reservationRepository.findByParkingSpotSpotType(spotType);
+        return reservationRepository.getParkingPlaceByType(spotType);
     }
 }

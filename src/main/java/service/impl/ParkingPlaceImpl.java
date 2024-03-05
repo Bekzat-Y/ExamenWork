@@ -1,13 +1,11 @@
 package service.impl;
 
 import entity.ParkingPlace;
-import entity.ParkingReservation;
 import enums.ParkingSpotType;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import repo.ParkingPlaceRepo;
-import repo.ParkingReservationRepo;
 import service.ParkingPlaceService;
 
 import java.util.List;
@@ -16,14 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ParkingPlaceImpl implements ParkingPlaceService {
 
-    private final ParkingReservationRepo reservationRepository;
     private final ParkingPlaceRepo placeRepository;
-
-    @Override
-    public List<ParkingReservation> processParkingReservation(ParkingSpotType parkingReservation) {
-      return reservationRepository.findByParkingSpotSpotType(parkingReservation);
-
-    }
 
     @Override
     public List<ParkingPlace> getParkingPlaces() {
@@ -46,15 +37,14 @@ public class ParkingPlaceImpl implements ParkingPlaceService {
         return placeRepository.save(existingParkingPlace);
     }
 
-
-
     @Override
     public void deleteParkingSpot(Long id) {
         placeRepository.deleteById(id);
     }
 
+    @Override
     public ParkingPlace getParkingPlaceById(Long id) {
         return placeRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Parking place not found with id: " + id));
+                .orElseThrow(() -> new EntityNotFoundException("Не удалось найти парковочное место по ID: " + id));
     }
 }

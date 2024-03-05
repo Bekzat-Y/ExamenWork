@@ -24,7 +24,7 @@ public class ParkingPlaceController {
         this.parkingPlaceService = parkingPlaceService;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getPlaceById/{id}")
     public ResponseEntity<ParkingPlace> getParkingPlaceById(@PathVariable Long id) {
         try {
             ParkingPlace parkingPlace = parkingPlaceService.getParkingPlaceById(id);
@@ -34,13 +34,13 @@ public class ParkingPlaceController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/getParkingPlace")
     public ResponseEntity<List<ParkingPlace>> getParkingPlaces() {
         List<ParkingPlace> parkingPlaces = parkingPlaceService.getParkingPlaces();
         return ResponseEntity.ok(parkingPlaces);
     }
 
-    @PostMapping
+    @PostMapping("/createParkingPlace")
     public ResponseEntity<ParkingPlace> createParkingPlace(@RequestBody ParkingPlace parkingPlace) {
         try {
             ParkingPlace createdPlace = parkingPlaceService.createParkingSpot(parkingPlace);
@@ -50,7 +50,7 @@ public class ParkingPlaceController {
         }
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/updateParkingPlace/{id}")
     public ResponseEntity<ParkingPlace> updateParkingPlace(@PathVariable Long id, @RequestBody ParkingPlace updatedParkingSpot) {
         try {
             ParkingPlace updatedPlace = parkingPlaceService.updateParkingSpot(id, updatedParkingSpot);
@@ -60,7 +60,7 @@ public class ParkingPlaceController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteParkingPlace/{id}")
     public ResponseEntity<Void> deleteParkingPlace(@PathVariable Long id) {
         try {
             parkingPlaceService.deleteParkingSpot(id);

@@ -12,11 +12,11 @@ public class ParkingReservation {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id",nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private Users users;
 
     @ManyToOne
-    @JoinColumn(name = "parking_spot_id",nullable = false)
+    @JoinColumn(name = "parking_spot_id", nullable = false)
     private ParkingPlace parkingPlace;
 
     private boolean isReleased;
